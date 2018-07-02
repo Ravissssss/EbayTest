@@ -3,23 +3,18 @@ package pages;
 import static org.testng.Assert.fail;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.bcel.generic.Select;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Sleeper;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import utilities.FailCase;
 import utilities.Log;
@@ -33,18 +28,16 @@ public class HomePage extends MobileActions {
 
 	public HomePage(MobileDriver driver) {
 		exwait = new WebDriverWait(driver, 30);
-		PageFactory.initElements(new AppiumFieldDecorator(driver, 30, TimeUnit.SECONDS), this);
+		PageFactory.initElements(new AppiumFieldDecorator(driver, 40, TimeUnit.SECONDS), this);
 	}
 
 	@SuppressWarnings("unchecked")
 	public <T> T navigateTo(MobileDriver driver, String Menu_item,String validAccount) throws Exception {
 
 		verificationErrors=new StringBuffer();
-		Thread.sleep(30000);
 
 		System.out.println("return null");
 		return null;
-
 	}
 
 	public void homePage(MobileDriver driver, HashMap<String, String> data) throws Exception {
@@ -52,16 +45,16 @@ public class HomePage extends MobileActions {
 		{
 			verificationErrors = new StringBuffer();
 			Screenshots.takeScreenshot(driver, screenshotFilePath + "AppLaunchScreen.png");
+
 			Log.info("Searching for TV");	
 			sendkeyTotextbox(driver, verificationErrors, btnSearch, data.get("TV"));
 			Screenshots.takeScreenshot(driver, screenshotFilePath + "SearchingProdctScreen.png");
-
 			driver.hideKeyboard();
-			Thread.sleep(2000);
 
-			/* Map<String, Object> EnterKeyEvent  = new HashMap<String, Object>();
-			 EnterKeyEvent.put("key", "67");
-			 driver.execute("mobile:key:event", EnterKeyEvent);*/
+			Wait wait = new FluentWait(driver)
+					.withTimeout(30, TimeUnit.SECONDS)
+					.pollingEvery(5, TimeUnit.SECONDS)
+					.ignoring(NoSuchElementException.class);
 
 			clickElement(driver, verificationErrors, selectTv);
 			Screenshots.takeScreenshot(driver, screenshotFilePath + "SelectProduct.png");
@@ -82,20 +75,18 @@ public class HomePage extends MobileActions {
 			Log.info("Clicking on Register button");	
 			Screenshots.takeScreenshot(driver, screenshotFilePath + "EbayHomeScreen.png");
 			clickElement(driver, verificationErrors, btn_Register);
-
 			Screenshots.takeScreenshot(driver, screenshotFilePath + "LoginDetailsScreen.png");
 
 			sendkeyTotextbox(driver, verificationErrors, val_FirstName, data.get("FirstName"));
 			clickElement(driver, verificationErrors, lbl_FirstName);
 
+			//Just hiding the keypad
 			driver.hideKeyboard();
-			Thread.sleep(2000);
+
 			Log.info("Verifying First Name");
 			verifyElementPresent(driver, verificationErrors, lbl_FirstName);
 
 			Log.info("Verifying Last Name");
-			//	Assert.assertEquals(lbl_LastName, "lbl_LastName", "Last name label is mismatched");
-
 			Assert.assertEquals(lbl_LastName.getText(),data.get("LabelLastName"),"Last Name label is mismatched" );
 
 			sendkeyTotextbox(driver, verificationErrors, val_LastName, data.get("SecondName"));
@@ -103,7 +94,7 @@ public class HomePage extends MobileActions {
 			sendkeyTotextbox(driver, verificationErrors, val_Email, data.get("Email"));
 			verifyElementPresent(driver, verificationErrors, lbl_Email);
 
-			sendkeyTotextbox(driver, verificationErrors, val_Password, data.get("Password	"));
+			sendkeyTotextbox(driver, verificationErrors, val_Password, data.get("Password"));
 			Assert.assertEquals(lbl_Password.getText(),data.get("LabelPassword"),"Password label is mismatched" );
 
 			Log.info("Submitting Register button");	
@@ -125,9 +116,6 @@ public class HomePage extends MobileActions {
 			sendkeyTotextbox(driver, verificationErrors, city, data.get("City"));
 
 			Log.info("Selecting the State");	
-			/*Select drpState = new Select(driver.findElement(By.xpath(drpdownState)));
-			drpState.selectByVisibleText("Andra Pradesh");
-			 */	
 			dropdownselect(driver, verificationErrors, data.get("State"));
 
 			Log.info("Entering Zip code");	
@@ -171,7 +159,6 @@ public class HomePage extends MobileActions {
 	}
 	public void app_logout(MobileDriver driver) throws InterruptedException 
 	{
-		Thread.sleep(9000);
 		verificationErrors=new StringBuffer();
 		if (driver != null) 
 		{
@@ -198,9 +185,6 @@ public class HomePage extends MobileActions {
 	@FindBy(xpath="android.widget.EditText[contains(@resource-id,'lastname')]")
 	private MobileElement val_LastName;
 
-	/*@FindBy(xpath="android.view.View[contains(@resource-id,'lbllastname')]")
-	private MobileElement lbl_LastName;
-	 */
 	@FindBy(xpath="android.widget.EditText[contains(@resource-id,'email')]")
 	private MobileElement val_Email;
 
@@ -245,7 +229,6 @@ public class HomePage extends MobileActions {
 
 	@FindBy(xpath="//android.widget.Button[contains(@resource-id,'sbtBtn') and @text='Continue']")
 	private MobileElement btn_Continue;
-
 
 	@FindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.ebay.mobile:id/search_box') and @text='Search for anything']")
 	private MobileElement btnSearch;

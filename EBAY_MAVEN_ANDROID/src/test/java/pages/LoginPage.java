@@ -27,9 +27,7 @@ public class LoginPage extends MobileActions {
 
 	public MobileDriver launch_mobile(String mobileType) throws Exception {
 		final String URL_STRING = "http://0.0.0.0:4723/wd/hub";
-
 		url = new URL(URL_STRING);
-
 		File classpathRoot= new File(System.getProperty("user.dir"));
 		File appDir = new File(classpathRoot,"app");
 		File app;
@@ -55,21 +53,10 @@ public class LoginPage extends MobileActions {
 			app = new File(appDir, "");
 			capabilities.setCapability("deviceName", "iPhone 6s Plus");
 			capabilities.setCapability("app", app.getAbsolutePath());
-			//capabilities.setCapability("udid", "");
 			capabilities.setCapability("bundleId", "");
 			capabilities.setCapability("platformVersion", "9.3");
 			driver = new IOSDriver<MobileElement>(url,capabilities);
 		}
-
-		/*	
-		Set<String> context = driver.getContextHandles();
-		System.out.println("contexts available for login:" +context);
-		for (String contextName : context) {
-
-			driver.context(contextName);
-			Log.info(contextName);
-
-		}*/
 
 		PageFactory.initElements(new AppiumFieldDecorator(driver, 30, TimeUnit.SECONDS), this);
 		return driver;
@@ -93,9 +80,7 @@ public class LoginPage extends MobileActions {
 
 			clickElement(driver, verificationErrors, btnSignIn);
 			Screenshots.takeScreenshot(driver, screenshotFilePath + "ProductsScreen.png");
-
 			 */	
-
 		}
 		catch(Exception e)
 		{
@@ -120,7 +105,6 @@ public class LoginPage extends MobileActions {
 		}
 		return new HomePage(driver);
 	}
-
 
 	/************************** Object Repository for perform_MenuClick() ********************************/
 	@FindBy(xpath="//android.widget.Button[contains(@resource-id,'com.ebay.mobile:id/button_sign_in') and @text='Sign in']")
