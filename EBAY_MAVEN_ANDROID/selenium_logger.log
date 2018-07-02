@@ -1,0 +1,33 @@
+2018-07-01 12:52:17,799 |  INFO | [main] | utilities.Log:info(25) | Creation of testng xml file started 
+2018-07-01 12:52:17,803 |  INFO | [main] | utilities.Log:info(25) | Reading file 
+2018-07-01 12:52:18,103 |  INFO | [main] | utilities.Log:info(25) | Creation of testng xml file Completed 
+2018-07-01 12:52:18,103 |  INFO | [main] | utilities.Log:info(25) | Test Case execution started 
+2018-07-01 12:52:18,952 |  INFO | [main] | utilities.Log:info(25) | Before suite Started 
+2018-07-01 12:52:18,981 | FATAL | [main] | utilities.Log:fatal(37) | The file you provided was not found on your HDD. You provided the following file path: D:\Applications\Appium.app\Contents\Resources\node\bin\node 
+2018-07-01 12:52:22,068 |  INFO | [main] | utilities.Log:info(25) | Data files set for :HomeTest 
+2018-07-01 12:52:22,148 |  INFO | [main] | utilities.Log:info(25) | Android Mobile 
+2018-07-01 12:53:12,340 |  INFO | [main] | utilities.Log:info(25) | NATIVE_APP 
+2018-07-01 12:53:12,371 |  INFO | [main] | utilities.Log:startTestCase(14) | $$$$$$$$$$$$$$$$$$$$$                 H001_HomePageDetails---TC001_HomePageDetails       $$$$$$$$$$$$$$$$$$$$$$$$$ 
+2018-07-01 12:53:24,849 |  INFO | [main] | utilities.Log:info(25) | NATIVE_APP 
+2018-07-01 12:53:24,849 |  INFO | [main] | utilities.Log:info(25) | Searching for TV 
+2018-07-01 12:54:09,239 | FATAL | [main] | utilities.Log:fatal(37) | Element is not present to enter text - Element Name : org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.xpath: //android.widget.TextView[contains(@resource-id,'com.ebay.mobile:id/search_box') and @text='Search for anything']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.46.0', revision: '61506a4624b13675f24581e453592342b7485d71', time: '2015-06-04 10:22:50'
+System info: host: 'HYDHTC151280L', ip: '192.168.0.30', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_141'
+Driver info: driver.version: unknown 
+2018-07-01 12:54:19,391 |  INFO | [main] | utilities.Log:info(25) | NATIVE_APP 
+2018-07-01 12:54:31,854 |  INFO | [main] | utilities.Log:info(25) | NATIVE_APP 
+2018-07-01 12:54:55,259 |  INFO | [main] | utilities.Log:info(25) | Logged Off 
+2018-07-01 12:54:55,259 |  INFO | [main] | utilities.Log:info(25) | Completed!!!!! 
+2018-07-01 12:54:55,319 |  INFO | [main] | utilities.Log:info(25) |  After Suite 
+2018-07-01 12:54:59,655 | DEBUG | [main] | freemarker.cache:debug(45) | Couldn't find template in cache for "Extent.Offline.ftl"("en_US", UTF-8, parsed); will try to load it. 
+2018-07-01 12:54:59,655 | DEBUG | [main] | freemarker.cache:debug(45) | TemplateLoader.findTemplateSource("Extent.Offline_en_US.ftl"): Not found 
+2018-07-01 12:54:59,671 | DEBUG | [main] | freemarker.cache:debug(45) | TemplateLoader.findTemplateSource("Extent.Offline_en.ftl"): Not found 
+2018-07-01 12:54:59,671 | DEBUG | [main] | freemarker.cache:debug(45) | TemplateLoader.findTemplateSource("Extent.Offline.ftl"): Found 
+2018-07-01 12:54:59,671 | DEBUG | [main] | freemarker.cache:debug(45) | Loading template for "Extent.Offline.ftl"("en_US", UTF-8, parsed) from "jar:file:/C:/Users/ravi.devireddy/.m2/repository/com/relevantcodes/extentreports/2.40.2/extentreports-2.40.2.jar!/com/relevantcodes/extentreports/view/Extent.Offline.ftl" 
+2018-07-01 12:55:00,538 | DEBUG | [main] | freemarker.cache:debug(45) | Couldn't find template in cache for "Extent.Offline.ftl"("en_US", UTF-8, parsed); will try to load it. 
+2018-07-01 12:55:00,547 | DEBUG | [main] | freemarker.cache:debug(45) | TemplateLoader.findTemplateSource("Extent.Offline_en_US.ftl"): Not found 
+2018-07-01 12:55:00,548 | DEBUG | [main] | freemarker.cache:debug(45) | TemplateLoader.findTemplateSource("Extent.Offline_en.ftl"): Not found 
+2018-07-01 12:55:00,550 | DEBUG | [main] | freemarker.cache:debug(45) | TemplateLoader.findTemplateSource("Extent.Offline.ftl"): Found 
+2018-07-01 12:55:00,552 | DEBUG | [main] | freemarker.cache:debug(45) | Loading template for "Extent.Offline.ftl"("en_US", UTF-8, parsed) from "jar:file:/C:/Users/ravi.devireddy/.m2/repository/com/relevantcodes/extentreports/2.40.2/extentreports-2.40.2.jar!/com/relevantcodes/extentreports/view/Extent.Offline.ftl" 
+2018-07-01 12:55:01,210 |  INFO | [main] | utilities.Log:info(25) | Test Case execution Completed 

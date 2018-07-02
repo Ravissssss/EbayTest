@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite configfailurepolicy="continue" name="Mobile Regression Test Suite" verbose="2">
+  <listeners>
+    <listener class-name="utilities.CustomReportTest"/>
+  </listeners>
+  <test name="Functional test">
+    <parameter name="MobileType" value="ANDROID"/>
+    <parameter name="URL" value="https://drive.google.com/open?id=1RxStX5EwnSk81OPXMmnK9aXwMOlxfjOG"/>
+    <parameter name="Ebay_username" value="reddy55554@gmail.com"/>
+    <parameter name="Ebay_password" value="Assvreddy@6243"/>
+    <parameter name="" value=""/>
+    <classes>
+      <class name="tests.HomeTest">
+        <methods>
+          <include name="H001_HomePageDetails"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+</suite>

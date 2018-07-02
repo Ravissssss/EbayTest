@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+
+   <appender name="FILE" class="org.apache.log4j.FileAppender">
+      <param name="File" value="selenium_logger.log"/>
+      <param name="Append" value="false"/>
+
+      <!-- Rollover at midnight each day -->
+       <layout class="org.apache.log4j.PatternLayout">
+         <!-- The default pattern: Date Priority [Category] Message\n -->
+         <param name="ConversionPattern" value="%d | %5p | [%t] | %c:%M(%L) | %m %n"/>
+
+      </layout>
+   </appender>
+   <logger name="org.apache.commons.httpclient">
+  		<level value="fatal"/> 
+	</logger>
+	<logger name="org.apache.http">
+  		<level value="fatal"/> 
+	</logger>
+	 <logger name="httpclient.wire.header">
+  		<level value="fatal"/> 
+	</logger>
+	 <logger name="httpclient.wire.content">
+  		<level value="fatal"/> 
+	</logger>
+    <root>
+	  <level value="debug" />
+	  <appender-ref ref="FILE"/>
+   </root>
+
+ 
+</log4j:configuration>
