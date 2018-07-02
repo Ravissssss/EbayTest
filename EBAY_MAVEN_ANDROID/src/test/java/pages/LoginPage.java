@@ -118,19 +118,4 @@ public class LoginPage extends MobileActions {
 
 	@FindBy(id="com.ebay.mobile:id/button_sign_in")
 	private MobileElement btnSignIn;
-
-	@FindBy(xpath="//android.widget.Button[contains(@resource-id,'com.ebay.mobile:id/button_register')]")
-	private MobileElement btn_Register;
-
-	@FindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.ebay.mobile:id/search_box') and @text='Search for anything']")
-	private MobileElement btnSearch;
-
-	@FindBy(xpath="android.widget.EditText[contains(@resource-id,'com.ebay.mobile:id/search_src_text') and @text='Search for anything']")
-	private MobileElement sendkeys_Search;
-
-	@FindBy(xpath="android.widget.TextView[contains(@resource-id,'com.ebay.mobile:id/text') and @text='65 inch tvLED Televisions']")
-	private MobileElement selectTv;
-
-	@FindBy(xpath="//android.widget.TextView[contains(@resource-id,'com.ebay.mobile:id/textview_item_price')]")
-	private MobileElement tvPrice;
 }
